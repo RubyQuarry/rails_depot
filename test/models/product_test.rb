@@ -18,10 +18,31 @@ class ProductTest < ActiveSupport::TestCase
                           image_url: "zzz.jpg")
     product.price = -1
     assert product.invalid?
-    assert_equal ["must be greater than or equal to 0.01"],
-                 product.errors[:price]
     product.price = 1
     assert product.valid?
 
   end
+
+  def new_product(image_url)
+    Product.new(title:'my title',
+                description: 'definitions',
+                price: 1.00,
+                image_url: image_url)
+  end
+
+  test "image url" do
+    ok = %w{ fred.gif fred.jpg FRED.JPG FRED.Jpg http://a.b.c/fred.gif }
+    bad = %w{ fred.doc fred.gif.more}
+
+    ok.each do |name|
+      assert new_product(name).valid?
+    end
+
+    bad.each do |name|
+      assert new_product(name).invalid?
+    end
+  end
+
+
+
 end
