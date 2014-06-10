@@ -12,5 +12,5 @@ class Product < ActiveRecord::Base
       message: 'mush be a URL for gif, jpg or png image.'
   }
 
-  validates :title, length: {minimum: 10, maximum: 32, message: "message must be between 10 and 32 characters"}
+  validates :title, length: {minimum: 10, maximum: 32, message: 'message must be between 10 and 32 characters'}
 end
