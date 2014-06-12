@@ -14,12 +14,9 @@
 </div>
     <div id="columns">
         <div id="side">
-          <ul>
-            <li> <a href="http://www.google.com">Home</a> </li>
-            <li> <a href="http://www.google.com">Home2</a> </li>
-            <li> <a href="http://www.google.com">Home3</a> </li>
-            <li> <a href="http://www.google.com">Home4</a> </li>
-          </ul>
+          <div id="cart">
+            <%= render(@cart) %>
+          </div>
 
           <div id="time">
             <%= Time.now %>
